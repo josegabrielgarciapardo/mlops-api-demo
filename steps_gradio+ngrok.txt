@@ -18,6 +18,10 @@
 8. Crear el script de backend por debajo de la interfaz de GRADIO --> gradio_app.py
 9. Levantar la app de gradio y hacerla visible --> python gradio_app.py
 
+# COMPARTIR ENLACE PÚBLICO CON ngrok
+10. ngrok http 7860 --> via gradio
+    ngrok http 8000 --> via /docs
+
 
 
 ngrok authtoken
