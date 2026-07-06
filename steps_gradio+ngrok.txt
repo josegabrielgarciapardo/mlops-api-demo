@@ -1,0 +1,24 @@
+# DESARROLLO DEL MODELO
+1. Entrenar el modelo y guardarlo
+2. Testear el modelo para conocer las salidas esperadas
+
+# DESPLIEGUE EN API
+3. Crear la API con "FastAPI" usando los métodos "GET" y "POST" necesarios --> app/main.py
+4. Levantar API para poder usarla en una red interna
+    4.1 uvicorn app.main:app --host 0.0.0.0 --port 8000 --> Para levantar la API
+    4.2 http://192.168.1.XX:8000/docs --> para entrar a la API desde otro dispositivo conectando a la misma red
+    4.3 Comprobar que efectivamente se devuelven los resultados esperados
+
+# DOCKERIZACIÓN
+5. Generar archivo dockerfile para dockerizar la solución
+6. docker build --no-cache -t mlops-api-demo . --> Crear imagen docker para reproducibilidad futura
+7. docker run -p 8000:8000 mlops-api-demo --> Ejecutar la imagen docker para poder hacer peticiones
+
+# USO DE GRADIO COMO INTERFAZ
+8. Crear el script de backend por debajo de la interfaz de GRADIO --> gradio_app.py
+9. Levantar la app de gradio y hacerla visible --> python gradio_app.py
+
+
+
+ngrok authtoken
+3G7xz0KrTocTQ3RWxJzVi0pj2Oy_5oBskLuDFq7mxk37hgHRP
