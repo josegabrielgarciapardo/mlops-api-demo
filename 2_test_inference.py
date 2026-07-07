@@ -1,7 +1,8 @@
 import joblib
 import numpy as np
-from pathlib import Path
 
+MODEL_PATH = "C:/Users/joseg/Desktop/MLOps/app/artifacts/model.joblib"
+model = joblib.load(MODEL_PATH)
 
 sepal_length = 2.1
 sepal_width = 2.5
@@ -14,10 +15,6 @@ features = np.array([[
     petal_length,
     petal_width
 ]])
-
-
-MODEL_PATH = "C:/Users/joseg/Desktop/MLOps/app/artifacts/model.joblib"
-model = joblib.load(MODEL_PATH)
 
 prediction = int(model.predict(features)[0])
 probabilities = model.predict_proba(features)[0]
