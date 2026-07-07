@@ -2,25 +2,27 @@
 1. Entrenar el modelo y guardarlo
 2. Testear el modelo para conocer las salidas esperadas
 
-# DESPLIEGUE EN API
+# DESPLIEGUE EN API (terminal 1)
 3. Crear la API con "FastAPI" usando los métodos "GET" y "POST" necesarios --> app/main.py
 4. Levantar API para poder usarla en una red interna
     4.1 uvicorn app.main:app --host 0.0.0.0 --port 8000 --> Para levantar la API
     4.2 http://192.168.1.XX:8000/docs --> para entrar a la API desde otro dispositivo conectando a la misma red
     4.3 Comprobar que efectivamente se devuelven los resultados esperados
 
-# DOCKERIZACIÓN
-5. Generar archivo dockerfile para dockerizar la solución
-6. docker build --no-cache -t mlops-api-demo . --> Crear imagen docker para reproducibilidad futura
-7. docker run -p 8000:8000 mlops-api-demo --> Ejecutar la imagen docker para poder hacer peticiones
+# USO DE GRADIO COMO INTERFAZ (terminal 2)
+5. Crear el script de backend por debajo de la interfaz de GRADIO --> gradio_app.py
+6. Levantar la app de gradio --> python gradio_app.py
+   Esto permite entrar a la plataforma y consumirla desde otros dispositivos conectados a la misma red compartiendo la IP
+   http://192.168.1.XX:7860
 
-# USO DE GRADIO COMO INTERFAZ
-8. Crear el script de backend por debajo de la interfaz de GRADIO --> gradio_app.py
-9. Levantar la app de gradio y hacerla visible --> python gradio_app.py
+# DOCKERIZACIÓN (terminal 3)
+6. Generar archivo dockerfile para dockerizar la solución
+7. docker build --no-cache -t mlops-api-demo . --> Crear imagen docker para reproducibilidad futura
+8. docker run -p 8000:8000 mlops-api-demo --> Ejecutar la imagen docker para poder hacer peticiones
 
-# COMPARTIR ENLACE PÚBLICO CON ngrok
-10. ngrok http 7860 --> via gradio
-    ngrok http 8000 --> via /docs
+# COMPARTIR ENLACE PÚBLICO CON ngrok (terminal 4)
+10. ngrok http 7860 --> via gradio --> https://lent-remedy-sulphate.ngrok-free.dev (hay que tener ejecutado el 6. y el 8.)
+    ngrok http 8000 --> via API    --> https://lent-remedy-sulphate.ngrok-free.dev/docs  (hay que tener ejecutado el 8.)
 
 
 

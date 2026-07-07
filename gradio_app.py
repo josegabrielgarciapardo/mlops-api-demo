@@ -37,4 +37,4 @@ demo = gr.Interface(
     description="Interfaz web que consume una API de inferencia"
 )
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=7860)
